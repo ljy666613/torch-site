@@ -4,3 +4,15 @@
 2022-10-16 17:05:44.205|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 13348 (D:\Java practice\torch-website\admin\target\classes started by Lenovo in D:\Java practice\torch-website)
 2022-10-16 17:05:44.207|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
 2022-10-16 17:05:48.090|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 4.598 seconds (JVM running for 8.204)
+2022-10-16 18:13:35.092|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 13792 (D:\Java practice\torch-website\admin\target\classes started by Lenovo in D:\Java practice\torch-website)
+2022-10-16 18:13:35.094|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
+2022-10-16 18:13:40.946|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 6.814 seconds (JVM running for 9.464)
+2022-10-16 18:57:07.705|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 9008 (D:\Java practice\torch-website\admin\target\classes started by Lenovo in D:\Java practice\torch-website)
+2022-10-16 18:57:07.707|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
+2022-10-16 18:57:13.904|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 6.763 seconds (JVM running for 8.02)
+2022-10-16 19:07:23.291|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 7228 (D:\Java practice\torch-website\admin\target\classes started by Lenovo in D:\Java practice\torch-website)
+2022-10-16 19:07:23.293|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
+2022-10-16 19:07:27.625|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 5.305 seconds (JVM running for 7.402)
+2022-10-16 19:18:49.898|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 4120 (D:\Java practice\torch-website\admin\target\classes started by Lenovo in D:\Java practice\torch-website)
+2022-10-16 19:18:49.902|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
+2022-10-16 19:18:55.896|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 7.12 seconds (JVM running for 9.4)

@@ -11,5 +11,5 @@ public interface AdminService extends IService<Admin> {
     Admin getAdmin(Integer id);
     int insertAdmin(Admin admin);
     int deleteAdmin(Integer id);
-    int updateAdmin(Admin admin);
+    int updateAdmin(Admin admin,QueryWrapper<Admin> wrapper);
 }

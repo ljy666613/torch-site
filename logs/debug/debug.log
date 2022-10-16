@@ -12,3 +12,115 @@
 2022-10-16 17:06:07.270|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (name = ? AND password = ?)
 2022-10-16 17:06:07.289|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: lili(String), lili(String)
 2022-10-16 17:06:07.309|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 18:13:35.093|[restartedMain]|DEBUG|c.e.t.TorchWebsiteApplication-Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-16 18:16:45.434|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 18:16:45.456|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 18:16:45.475|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 18:16:54.515|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 18:16:54.515|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 18:16:54.516|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 18:16:54.529|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (name = ?)
+2022-10-16 18:16:54.530|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: ljy(String)
+2022-10-16 18:16:54.531|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 0
+2022-10-16 18:16:54.536|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.insert-==>  Preparing: INSERT INTO admin ( name, password ) VALUES ( ?, ? )
+2022-10-16 18:16:54.537|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.insert-==> Parameters: ljy(String), 666666(String)
+2022-10-16 18:16:54.543|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.insert-<==    Updates: 1
+2022-10-16 18:17:01.969|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 18:17:01.970|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 18:17:01.971|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 18:17:01.973|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (name = ?)
+2022-10-16 18:17:01.973|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: ljy(String)
+2022-10-16 18:17:01.975|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 18:17:35.687|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 18:17:35.688|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 18:17:35.689|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 18:17:35.691|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.AdminMapper.selectList-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (level <> ?)
+2022-10-16 18:17:35.692|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.AdminMapper.selectList-==> Parameters: 1(Integer)
+2022-10-16 18:17:35.693|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.AdminMapper.selectList-<==      Total: 2
+2022-10-16 18:57:07.706|[restartedMain]|DEBUG|c.e.t.TorchWebsiteApplication-Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-16 19:07:23.292|[restartedMain]|DEBUG|c.e.t.TorchWebsiteApplication-Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-16 19:09:41.803|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:09:41.823|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:09:41.840|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:09:41.871|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (name = ?)
+2022-10-16 19:09:41.872|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: null
+2022-10-16 19:09:41.874|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 0
+2022-10-16 19:09:41.878|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.update-==>  Preparing: UPDATE admin SET password=? WHERE (id = ?)
+2022-10-16 19:09:41.879|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.update-==> Parameters: 666666(String), 2(Integer)
+2022-10-16 19:09:41.881|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.update-<==    Updates: 1
+2022-10-16 19:09:50.360|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:09:50.360|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:09:50.361|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:09:50.367|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (name = ?)
+2022-10-16 19:09:50.367|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: null
+2022-10-16 19:09:50.368|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 0
+2022-10-16 19:09:50.371|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.update-==>  Preparing: UPDATE admin SET password=? WHERE (id = ?)
+2022-10-16 19:09:50.371|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.update-==> Parameters: 999999(String), 2(Integer)
+2022-10-16 19:09:50.376|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.update-<==    Updates: 1
+2022-10-16 19:18:49.900|[restartedMain]|DEBUG|c.e.t.TorchWebsiteApplication-Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-16 19:38:56.386|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:38:56.406|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:38:56.425|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:38:56.455|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (name = ?)
+2022-10-16 19:38:56.455|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: ljy(String)
+2022-10-16 19:38:56.458|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:40:07.746|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:40:07.747|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:40:07.748|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:40:07.757|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.UserMapper.selectOne-==>  Preparing: SELECT id,name,password,email,tel FROM user WHERE (name = ?)
+2022-10-16 19:40:07.758|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.UserMapper.selectOne-==> Parameters: ljy(String)
+2022-10-16 19:40:07.759|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.m.UserMapper.selectOne-<==      Total: 0
+2022-10-16 19:40:07.763|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.mapper.UserMapper.insert-==>  Preparing: INSERT INTO user ( name, password, email ) VALUES ( ?, ?, ? )
+2022-10-16 19:40:07.764|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.mapper.UserMapper.insert-==> Parameters: ljy(String), 123123123(String), 1042935581@qq.com(String)
+2022-10-16 19:40:07.769|[http-nio-0.0.0.0-8888-exec-4]|DEBUG|c.e.t.mapper.UserMapper.insert-<==    Updates: 1
+2022-10-16 19:40:29.700|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:40:29.701|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:40:29.703|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:40:29.705|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.UserMapper.selectOne-==>  Preparing: SELECT id,name,password,email,tel FROM user WHERE (name = ?)
+2022-10-16 19:40:29.705|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.UserMapper.selectOne-==> Parameters: ljy(String)
+2022-10-16 19:40:29.707|[http-nio-0.0.0.0-8888-exec-3]|DEBUG|c.e.t.m.UserMapper.selectOne-<==      Total: 1
+2022-10-16 19:41:09.216|[http-nio-0.0.0.0-8888-exec-5]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:41:09.216|[http-nio-0.0.0.0-8888-exec-5]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:41:09.217|[http-nio-0.0.0.0-8888-exec-5]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:41:09.219|[http-nio-0.0.0.0-8888-exec-5]|DEBUG|c.e.t.m.UserMapper.selectOne-==>  Preparing: SELECT id,name,password,email,tel FROM user WHERE (name = ?)
+2022-10-16 19:41:09.220|[http-nio-0.0.0.0-8888-exec-5]|DEBUG|c.e.t.m.UserMapper.selectOne-==> Parameters: ljy(String)
+2022-10-16 19:41:09.221|[http-nio-0.0.0.0-8888-exec-5]|DEBUG|c.e.t.m.UserMapper.selectOne-<==      Total: 1
+2022-10-16 19:41:16.325|[http-nio-0.0.0.0-8888-exec-6]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:41:16.325|[http-nio-0.0.0.0-8888-exec-6]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:41:16.326|[http-nio-0.0.0.0-8888-exec-6]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:41:16.328|[http-nio-0.0.0.0-8888-exec-6]|DEBUG|c.e.t.m.UserMapper.selectOne-==>  Preparing: SELECT id,name,password,email,tel FROM user WHERE (name = ?)
+2022-10-16 19:41:16.328|[http-nio-0.0.0.0-8888-exec-6]|DEBUG|c.e.t.m.UserMapper.selectOne-==> Parameters: ljy123(String)
+2022-10-16 19:41:16.329|[http-nio-0.0.0.0-8888-exec-6]|DEBUG|c.e.t.m.UserMapper.selectOne-<==      Total: 0
+2022-10-16 19:41:16.330|[http-nio-0.0.0.0-8888-exec-6]|DEBUG|c.e.t.mapper.UserMapper.insert-==>  Preparing: INSERT INTO user ( name, password, email ) VALUES ( ?, ?, ? )
+2022-10-16 19:41:16.331|[http-nio-0.0.0.0-8888-exec-6]|DEBUG|c.e.t.mapper.UserMapper.insert-==> Parameters: ljy123(String), 123123123(String), 1042935581@qq.com(String)
+2022-10-16 19:41:16.337|[http-nio-0.0.0.0-8888-exec-6]|DEBUG|c.e.t.mapper.UserMapper.insert-<==    Updates: 1
+2022-10-16 19:41:42.168|[http-nio-0.0.0.0-8888-exec-7]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:41:42.168|[http-nio-0.0.0.0-8888-exec-7]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:41:42.169|[http-nio-0.0.0.0-8888-exec-7]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:41:42.173|[http-nio-0.0.0.0-8888-exec-7]|DEBUG|c.e.t.m.UserMapper.selectOne-==>  Preparing: SELECT id,name,password,email,tel FROM user WHERE (name = ?)
+2022-10-16 19:41:42.174|[http-nio-0.0.0.0-8888-exec-7]|DEBUG|c.e.t.m.UserMapper.selectOne-==> Parameters: ljy666666(String)
+2022-10-16 19:41:42.175|[http-nio-0.0.0.0-8888-exec-7]|DEBUG|c.e.t.m.UserMapper.selectOne-<==      Total: 0
+2022-10-16 19:41:42.179|[http-nio-0.0.0.0-8888-exec-7]|DEBUG|c.e.t.mapper.UserMapper.update-==>  Preparing: UPDATE user SET name=?, password=?, email=? WHERE (id = ?)
+2022-10-16 19:41:42.180|[http-nio-0.0.0.0-8888-exec-7]|DEBUG|c.e.t.mapper.UserMapper.update-==> Parameters: ljy666666(String), 888888(String), 1042935581@qq.com(String), 1(Integer)
+2022-10-16 19:41:42.185|[http-nio-0.0.0.0-8888-exec-7]|DEBUG|c.e.t.mapper.UserMapper.update-<==    Updates: 1
+2022-10-16 19:41:54.444|[http-nio-0.0.0.0-8888-exec-8]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:41:54.445|[http-nio-0.0.0.0-8888-exec-8]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:41:54.447|[http-nio-0.0.0.0-8888-exec-8]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:41:54.452|[http-nio-0.0.0.0-8888-exec-8]|DEBUG|c.e.t.m.UserMapper.selectOne-==>  Preparing: SELECT id,name,password,email,tel FROM user WHERE (name = ?)
+2022-10-16 19:41:54.453|[http-nio-0.0.0.0-8888-exec-8]|DEBUG|c.e.t.m.UserMapper.selectOne-==> Parameters: ljy123(String)
+2022-10-16 19:41:54.454|[http-nio-0.0.0.0-8888-exec-8]|DEBUG|c.e.t.m.UserMapper.selectOne-<==      Total: 1
+2022-10-16 19:42:05.659|[http-nio-0.0.0.0-8888-exec-9]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:42:05.659|[http-nio-0.0.0.0-8888-exec-9]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:42:05.660|[http-nio-0.0.0.0-8888-exec-9]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:42:05.661|[http-nio-0.0.0.0-8888-exec-9]|DEBUG|c.e.t.m.UserMapper.deleteById-==>  Preparing: DELETE FROM user WHERE id=?
+2022-10-16 19:42:05.662|[http-nio-0.0.0.0-8888-exec-9]|DEBUG|c.e.t.m.UserMapper.deleteById-==> Parameters: 2(Integer)
+2022-10-16 19:42:05.667|[http-nio-0.0.0.0-8888-exec-9]|DEBUG|c.e.t.m.UserMapper.deleteById-<==    Updates: 1
+2022-10-16 19:43:13.610|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:43:13.611|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:43:13.731|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 19:43:13.732|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.UserMapper.selectList-==>  Preparing: SELECT id,name,password,email,tel FROM user
+2022-10-16 19:43:13.733|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.UserMapper.selectList-==> Parameters: 
+2022-10-16 19:43:13.734|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.UserMapper.selectList-<==      Total: 1
+2022-10-16 19:43:20.926|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 19:43:20.926|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 19:43:20.927|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1

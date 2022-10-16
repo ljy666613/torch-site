@@ -100,11 +100,10 @@ public class AdminController {
         }
 
         Admin newAdmin = new Admin();
-        newAdmin.setId(admin_id);
         newAdmin.setName(adminInfo.getName());
         newAdmin.setPassword(adminInfo.getPassword());
 
-        int res = adminService.updateAdmin(newAdmin);
+        int res = adminService.updateAdmin(newAdmin,new QueryWrapper<Admin>().eq("id",admin_id));
         if (res == 0){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("更改信息失败");
@@ -136,5 +135,7 @@ public class AdminController {
         Admin admin = (Admin) request.getAttribute("Admin");
         return R.ok().detail(admin);
     }
+
+
 
 }

@@ -33,8 +33,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     }
 
     @Override
-    public int updateAdmin(Admin admin) {
-        return adminMapper.updateById(admin);
+    public int updateAdmin(Admin admin,QueryWrapper<Admin> wrapper) {
+        return adminMapper.update(admin,wrapper);
     }
 
 }
