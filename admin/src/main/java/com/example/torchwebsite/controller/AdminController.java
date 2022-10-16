@@ -137,5 +137,4 @@ public class AdminController {
         return R.ok().detail(admin);
     }
 
-
 }
