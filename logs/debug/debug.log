@@ -1,0 +1,14 @@
+2022-10-16 17:00:22.992|[restartedMain]|DEBUG|c.e.t.TorchWebsiteApplication-Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-16 17:00:50.021|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (name = ? AND password = ?)
+2022-10-16 17:00:50.042|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: lili(String), lili(String)
+2022-10-16 17:00:50.063|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 17:00:53.536|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (id = ?)
+2022-10-16 17:00:53.537|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: 1(BigDecimal)
+2022-10-16 17:00:53.543|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
+2022-10-16 17:00:53.548|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectList-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (level <> ?)
+2022-10-16 17:00:53.548|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectList-==> Parameters: 1(Integer)
+2022-10-16 17:00:53.550|[http-nio-0.0.0.0-8888-exec-2]|DEBUG|c.e.t.m.AdminMapper.selectList-<==      Total: 1
+2022-10-16 17:05:44.206|[restartedMain]|DEBUG|c.e.t.TorchWebsiteApplication-Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-16 17:06:07.270|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==>  Preparing: SELECT id,name,password,level FROM admin WHERE (name = ? AND password = ?)
+2022-10-16 17:06:07.289|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-==> Parameters: lili(String), lili(String)
+2022-10-16 17:06:07.309|[http-nio-0.0.0.0-8888-exec-1]|DEBUG|c.e.t.m.AdminMapper.selectOne-<==      Total: 1
