@@ -1,10 +1,11 @@
 package com.example.torchwebsite.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.api.pojo.User;
 import com.example.api.pojo.vo.User.UserInfo;
 import com.example.torchwebsite.service.UserService;
-import com.example.torchwebsite.utils.R;
+import com.example.commen.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -20,11 +21,17 @@ public class UserController {
 
     //    查询用户
     @GetMapping
-    public R<?> selectUsers(HttpServletRequest request, HttpServletResponse response){
+    public R<?> selectUsers(HttpServletRequest request, HttpServletResponse response,
+                            @RequestParam(defaultValue = "1") Integer pageNum,
+                            @RequestParam(defaultValue = "10") Integer pageSize,
+                            @RequestParam(defaultValue = "") String search){
 
         QueryWrapper<User> wrapper = new QueryWrapper<>();
-        List<User> users = userService.getUsers(wrapper);
-        return R.ok().detail(users);
+        wrapper.like("name",search);
+        Page<User> users = userService.getUsers(wrapper,new Page<>(pageNum, pageSize));
+        List<User> records = users.getRecords();
+
+        return R.ok().detail(records);
     }
 
     //删除用户
@@ -93,5 +100,27 @@ public class UserController {
     public R<?> getUser(@PathVariable Integer user_id){
         User user = userService.getUser(user_id);
         return R.ok().detail(user);
+    }
+//    管理员管理用户状态
+@PutMapping("/status/{user_id}")
+public R<?> updateStatus(HttpServletRequest request, HttpServletResponse response, @PathVariable Integer user_id){
+    User selectedUser = userService.getBaseMapper().selectOne(new QueryWrapper<User>().eq("id", user_id));
+    if (selectedUser == null){
+        return R.error().message("该用户不存在");
+    }
+    if (selectedUser.getIsActive() == 1){
+        selectedUser.setIsActive(0);
+    }else if (selectedUser.getIsActive() == 0){
+        selectedUser.setIsActive(1);
+    }
+    int res = userService.getBaseMapper().updateById(selectedUser);
+
+    if (res == 0){
+        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        return R.error().message("更改信息失败");
+    }
+
+    return R.ok().message("");
+
     }
 }

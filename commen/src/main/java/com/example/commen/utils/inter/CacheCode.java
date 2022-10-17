@@ -1,4 +1,4 @@
-package com.example.torchwebsite.utils.inter;
+package com.example.commen.utils.inter;
 
 /**
  * 用于存放有关缓存的时间、名字等，规范化

@@ -1,6 +1,7 @@
 package com.example.torchwebsite.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.api.pojo.User;
 import com.example.torchwebsite.mapper.UserMapper;
@@ -8,15 +9,14 @@ import com.example.torchwebsite.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Resource
     private UserMapper userMapper;
     @Override
-    public List<User> getUsers(QueryWrapper<User> wrapper) {
-        return userMapper.selectList(wrapper);
+    public Page<User> getUsers(QueryWrapper<User> wrapper,Page<User>objectPage) {
+        return userMapper.selectPage(objectPage,wrapper);
     }
 
     @Override

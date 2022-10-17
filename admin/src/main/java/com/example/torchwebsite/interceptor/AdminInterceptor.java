@@ -3,7 +3,7 @@ package com.example.torchwebsite.interceptor;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.api.pojo.Admin;
 import com.example.torchwebsite.service.AdminService;
-import com.example.torchwebsite.utils.JwtUtil;
+import com.example.commen.utils.JwtUtil;
 import io.fusionauth.jwt.JWTExpiredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

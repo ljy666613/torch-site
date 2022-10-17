@@ -1,6 +1,7 @@
 package com.example.torchwebsite.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.torchwebsite.mapper.AdminMapper;
 import com.example.api.pojo.Admin;
@@ -8,15 +9,14 @@ import com.example.torchwebsite.service.AdminService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @Service
 public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements AdminService {
     @Resource
     private AdminMapper adminMapper;
 
-    public List<Admin> getAdmins(QueryWrapper<Admin> wrapper){
-        return adminMapper.selectList(wrapper);
+    public Page<Admin> getAdmins(QueryWrapper<Admin> wrapper, Page<Admin> objectPage){
+        return adminMapper.selectPage(objectPage,wrapper);
     }
     public Admin getAdmin(Integer id){
         return adminMapper.selectById(id);

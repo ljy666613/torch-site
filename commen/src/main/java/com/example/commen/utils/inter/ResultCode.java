@@ -1,4 +1,4 @@
-package com.example.torchwebsite.utils.inter;
+package com.example.commen.utils.inter;
 
 /**
  * 自定义返回的code

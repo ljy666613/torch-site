@@ -24,6 +24,7 @@
         <module>admin</module>
         <module>api</module>
         <module>front</module>
+        <module>commen</module>
     </modules>
     <dependencies>
         <dependency>

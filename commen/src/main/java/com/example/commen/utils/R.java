@@ -1,6 +1,6 @@
-package com.example.torchwebsite.utils;
+package com.example.commen.utils;
 
-import com.example.torchwebsite.utils.inter.ResultCode;
+import com.example.commen.utils.inter.ResultCode;
 import lombok.Data;
 
 import java.util.HashMap;
