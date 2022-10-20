@@ -19,7 +19,7 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    //    查询用户
+    //    查询所有用户
     @GetMapping
     public R<?> selectUsers(HttpServletRequest request, HttpServletResponse response,
                             @RequestParam(defaultValue = "1") Integer pageNum,
@@ -95,7 +95,7 @@ public class UserController {
         }
         return R.ok().message("");
     }
-
+    //获取单个用户信息
     @GetMapping("/{user_id}")
     public R<?> getUser(@PathVariable Integer user_id){
         User user = userService.getUser(user_id);

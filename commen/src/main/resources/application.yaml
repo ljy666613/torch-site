@@ -1,0 +1,14 @@
+spring:
+  mail:
+    host: 120.241.186.196 #smtp.qq.com,linux服务器上要配置为ip地址
+    username: 3057179865@qq.com
+    password: lyduypdnolpodcfj
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    port: 587

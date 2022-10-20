@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 9999
   address: 0.0.0.0
 spring:
   datasource:
@@ -22,14 +22,27 @@ spring:
     port: 6379
     database: 6
     password: keepacat
+  mail:
+    host: 120.241.186.196 #smtp.qq.com,linux服务器上要配置为ip地址
+    username: 3057179865@qq.com
+    password: lyduypdnolpodcfj
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    port: 587
 
 mybatis-plus:
-  type-aliases-package: com/nian/business/entry #简化别名，用类的名字充当
-  mapper-locations: classpath:mapper/*.xml #类路径下
+  type-aliases-package: com/nian/business/entry #????????????
+  mapper-locations: classpath:mapper/*.xml #????
 
 logging:
   config: classpath:log/logback-spring.xml
-    #level自行设定
+  #level????
 
 jwt:
   rsa-private-key-path: cert/rsa/private-key.pem

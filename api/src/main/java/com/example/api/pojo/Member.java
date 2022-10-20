@@ -5,8 +5,9 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 @Data
-public class News {
+public class Member {
     @TableId(type = IdType.AUTO)
     private Integer id;
-    private String content;
+    private String name;
+    private String image;
 }
