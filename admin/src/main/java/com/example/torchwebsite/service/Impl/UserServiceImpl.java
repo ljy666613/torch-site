@@ -15,7 +15,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Resource
     private UserMapper userMapper;
     @Override
-    public Page<User> getUsers(QueryWrapper<User> wrapper,Page<User>objectPage) {
+    public Page<User> getUsers(QueryWrapper<User> wrapper,Page<User> objectPage) {
         return userMapper.selectPage(objectPage,wrapper);
     }
 

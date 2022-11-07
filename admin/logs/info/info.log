@@ -1,12 +1,6 @@
-2022-10-16 15:04:05.484|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 8028 (D:\Java practice\torch-website\target\classes started by Lenovo in D:\Java practice\torch-website)
-2022-10-16 15:04:05.490|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
-2022-10-16 15:04:09.768|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 4.843 seconds (JVM running for 6.065)
-2022-10-16 15:09:11.990|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 9336 (D:\Java practice\torch-website\target\classes started by Lenovo in D:\Java practice\torch-website)
-2022-10-16 15:09:11.992|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
-2022-10-16 15:09:15.936|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 4.684 seconds (JVM running for 6.464)
-2022-10-16 15:18:09.955|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 10340 (D:\Java practice\torch-website\target\classes started by Lenovo in D:\Java practice\torch-website)
-2022-10-16 15:18:09.957|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
-2022-10-16 15:18:14.113|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 4.876 seconds (JVM running for 7.08)
-2022-10-16 15:52:52.131|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 3332 (D:\Java practice\torch-website\target\classes started by Lenovo in D:\Java practice\torch-website)
-2022-10-16 15:52:52.134|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
-2022-10-16 15:52:56.412|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 5.105 seconds (JVM running for 6.87)
+2022-10-25 19:05:51.505|[main]|INFO |c.e.t.TorchWebsiteApplicationTests-Starting TorchWebsiteApplicationTests using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 1740 (started by Lenovo in D:\Java practice\torch-website\admin)
+2022-10-25 19:05:51.521|[main]|INFO |c.e.t.TorchWebsiteApplicationTests-No active profile set, falling back to 1 default profile: "default"
+2022-10-25 19:05:57.718|[main]|INFO |c.e.t.config.RedissonConfig-布隆过滤器初始化成功
+2022-10-25 19:08:27.055|[main]|INFO |c.e.t.TorchWebsiteApplicationTests-Starting TorchWebsiteApplicationTests using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 2540 (started by Lenovo in D:\Java practice\torch-website\admin)
+2022-10-25 19:08:27.071|[main]|INFO |c.e.t.TorchWebsiteApplicationTests-No active profile set, falling back to 1 default profile: "default"
+2022-10-25 19:08:37.501|[main]|INFO |c.e.t.config.RedissonConfig-布隆过滤器初始化成功

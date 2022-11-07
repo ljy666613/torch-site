@@ -23,6 +23,13 @@ spring:
     database: 6
     password: keepacat
 
+  rabbitmq:
+    username: admin
+    password: admin
+    virtual-host: /
+    host: 192.168.142.129
+    port: 5672
+
 mybatis-plus:
   type-aliases-package: com/nian/business/entry #简化别名，用类的名字充当
   mapper-locations: classpath:mapper/*.xml #类路径下

@@ -3,7 +3,7 @@ package com.example.torchwebsite.interceptor;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.api.pojo.Admin;
 import com.example.torchwebsite.service.AdminService;
-import com.example.commen.utils.JwtUtil;
+import com.example.torchwebsite.utils.JwtUtil;
 import io.fusionauth.jwt.JWTExpiredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,6 +32,7 @@ public class AdminInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
         String tokenBearer = request.getHeader("Authorization");
         if(tokenBearer == null){
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

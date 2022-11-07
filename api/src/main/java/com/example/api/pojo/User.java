@@ -5,8 +5,10 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
+import java.io.Serializable;
+
 @Data
-public class User {
+public class User implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
     @Length(min = 1, max = 12)
@@ -16,4 +18,5 @@ public class User {
     private String email;
     private Long tel;
     private Integer isActive;
+    private Integer isLogin;
 }
