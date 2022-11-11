@@ -1,6 +1,9 @@
 package com.example.torchwebsite.controller;
 
 import cn.hutool.json.JSONObject;
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch.core.SearchResponse;
+import co.elastic.clients.elasticsearch.core.search.Hit;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.api.constants.AdminConstants;
@@ -25,6 +28,7 @@ import javax.websocket.Decoder;
 import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
 import javax.websocket.Session;
+import java.io.IOException;
 import java.util.*;
 
 @RestController
@@ -42,6 +46,9 @@ public class AdminController {
     private final JwtUtil jwtUtil ;
 
     private RedissonClient redissonClient;
+
+    @Resource
+    private ElasticsearchClient client;
 
 //    private Integer countTest = 0;
 
@@ -84,6 +91,7 @@ public class AdminController {
             return R.error().message("没有root权限");
         }
 
+
         QueryWrapper<Admin> wrapper = new QueryWrapper<>();
         wrapper.eq("name",adminInfo.getName());
         Admin selectedAdmin = adminService.getBaseMapper().selectOne(wrapper);
@@ -99,6 +107,7 @@ public class AdminController {
         if (res == 0){
             return R.error().message("数据库添加失败");
         }
+        rabbitTemplate.convertAndSend(AdminConstants.ADMIN_EXCHANGE,AdminConstants.ADMIN_INSERT_KEY,newAdmin.getId());
         return R.ok().message("");
     }
 //删除普通管理员
@@ -112,6 +121,7 @@ public class AdminController {
         if (res == 0){
             return R.error().message("数据库删除失败");
         }
+        rabbitTemplate.convertAndSend(AdminConstants.ADMIN_EXCHANGE,AdminConstants.ADMIN_DELETE_KEY,admin_id);
         return R.ok().message("");
     }
 //    更新普通管理员信息   普通用户可以修改自己，而root用户可以修改自己和普通管理员
@@ -124,6 +134,7 @@ public class AdminController {
 
         QueryWrapper<Admin> wrapper = new QueryWrapper<>();
         wrapper.eq("name",adminInfo.getName());
+        wrapper.ne("id",admin_id);
         Admin selectedAdmin = adminService.getBaseMapper().selectOne(wrapper);
         if (selectedAdmin != null){
             return R.error().message("用户名已存在");
@@ -131,13 +142,14 @@ public class AdminController {
 
         Admin newAdmin = new Admin();
         newAdmin.setId(admin_id);
-//        newAdmin.setName(adminInfo.getName());
+        newAdmin.setName(adminInfo.getName());
         newAdmin.setPassword(adminInfo.getPassword());
 
         int res = adminService.updateAdmin(newAdmin,new QueryWrapper<Admin>().eq("id",admin_id));
         if (res == 0){
             return R.error().message("更改信息失败");
         }
+        rabbitTemplate.convertAndSend(AdminConstants.ADMIN_EXCHANGE,AdminConstants.ADMIN_INSERT_KEY,newAdmin.getId());
         return R.ok().message("");
     }
 //登录接口
@@ -169,6 +181,7 @@ public class AdminController {
         JSONObject jsonObject = new JSONObject();
         jsonObject.set("level",res.getLevel());
         jsonObject.set("token", token);
+        jsonObject.set("id",res.getId());
 
 //
         return R.ok().detail(jsonObject);
@@ -177,7 +190,6 @@ public class AdminController {
     @GetMapping("/info")
     public R<?> getAdminLevel(HttpServletRequest request){
         Admin admin = (Admin) request.getAttribute("Admin");
-        rabbitTemplate.convertAndSend(AdminConstants.ADMIN_EXCHANGE,AdminConstants.ADMIN_INSERT_KEY,admin.getId());
         return R.ok().detail(admin);
     }
 //  root获取指定管理员信息
@@ -288,4 +300,34 @@ public class AdminController {
         return R.ok().message("");
     }
 
+    @GetMapping("/elasticsearch")
+    public R<?> EsSearch(HttpServletRequest request,
+//                         ES与Page查询不同，from：从第几项开始，size查询多少项
+//                         而pageSize：页面大小，pageNum：页号
+
+                         @RequestParam(defaultValue = "1") Integer from,
+                         @RequestParam(defaultValue = "10") Integer size,
+                         @RequestParam(defaultValue = "") String searchContent){
+        Admin admin = (Admin) request.getAttribute("Admin");
+        SearchResponse<Admin> search = null;
+        try {
+            search = client.search(s -> s
+    //                  可以 多索引表查询
+                            .index("torchwebsite-admin" /*,"products"*/).size(size).from(from)
+                            .query(q -> q.match(m -> m
+                                    .field("all")
+                                    .query(searchContent)
+                            ))
+                ,Admin.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+        }
+
+        List<Admin> source = new ArrayList<>();
+        for (Hit<Admin> hit: search.hits().hits()) {
+            System.out.println(hit.source());
+            source.add(hit.source());
+        }
+        return R.ok().detail(source);
+    }
 }

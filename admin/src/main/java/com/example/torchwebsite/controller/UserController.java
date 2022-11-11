@@ -68,6 +68,7 @@ public class UserController {
 
         QueryWrapper<User> wrapperEmail = new QueryWrapper<>();
         wrapperEmail.eq("email",userInfo.getEmail());
+        wrapperEmail.ne("id",user_id);
         User selectedUserEmail = userService.getBaseMapper().selectOne(wrapperEmail);
         if (selectedUserEmail != null && selectedUserEmail.getId()!=user_id){
             return R.error().message("邮箱已注册");
@@ -75,6 +76,7 @@ public class UserController {
 
         QueryWrapper<User> wrapperTel = new QueryWrapper<>();
         wrapperTel.eq("tel",userInfo.getTel());
+        wrapperTel.ne("id",user_id);
         User selectedUserTel = userService.getBaseMapper().selectOne(wrapperTel);
         if (selectedUserTel != null && selectedUserTel.getId()!=user_id){
             return R.error().message("手机号已注册");
