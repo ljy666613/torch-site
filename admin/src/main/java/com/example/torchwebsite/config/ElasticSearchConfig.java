@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
+//  Elasticsearch 注入配置
 public class ElasticSearchConfig {
 
     //注入IOC容器

@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 
 @Configuration
+// 拦截器配置，拦截除了login以外的接口~
 public class InterceptorConfig implements WebMvcConfigurer {
     private final AdminInterceptor interceptor;
 

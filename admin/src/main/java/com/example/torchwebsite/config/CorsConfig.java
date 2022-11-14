@@ -10,6 +10,7 @@ import org.springframework.web.filter.CorsFilter;
  * 跨域配置
  */
 @Configuration
+//   跨域配置
 public class CorsConfig {
     private static final long Max_Age = 24*60*60;
     private CorsConfiguration buildConfig(){

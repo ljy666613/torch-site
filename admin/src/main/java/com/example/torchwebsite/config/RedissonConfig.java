@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Slf4j
 @Configuration
+//  Redission 配置
 public class RedissonConfig {
     @Value("${spring.redis.host}")
     private String host;

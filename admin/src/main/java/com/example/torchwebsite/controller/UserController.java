@@ -3,10 +3,12 @@ package com.example.torchwebsite.controller;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.api.constants.UserConstants;
 import com.example.api.pojo.User;
 import com.example.api.pojo.vo.User.UserInfo;
 import com.example.torchwebsite.service.UserService;
 import com.example.torchwebsite.utils.R;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -19,7 +21,8 @@ import java.util.List;
 public class UserController {
     @Resource
     private UserService userService;
-
+    @Resource
+    private RabbitTemplate rabbitTemplate;
     //    查询用户
     @GetMapping
     public R<?> selectUsers(HttpServletRequest request, HttpServletResponse response,
@@ -47,6 +50,7 @@ public class UserController {
         if (res == 0){
             return R.error().message("数据库删除失败");
         }
+        rabbitTemplate.convertAndSend(UserConstants.USER_EXCHANGE,UserConstants.USER_DELETE_KEY,user_id);
         return R.ok().message("");
     }
     //    更改用户信息
@@ -93,6 +97,7 @@ public class UserController {
         if (res == 0){
             return R.error().message("更改信息失败");
         }
+        rabbitTemplate.convertAndSend(UserConstants.USER_EXCHANGE,UserConstants.USER_INSERT_KEY,newUser.getId());
         return R.ok().message("");
     }
 
@@ -133,9 +138,10 @@ public class UserController {
 
         int res = userService.insertUser(newUser);
         if (res == 0){
-
             return R.error().message("数据库添加失败");
         }
+        rabbitTemplate.convertAndSend(UserConstants.USER_EXCHANGE,UserConstants.USER_INSERT_KEY,newUser.getId());
+
         return R.ok().message("");
     }
 

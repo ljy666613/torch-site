@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
+//  读取文件的工具类
 public class ReadFileUtil {
     public String readFileToString(InputStream in, Charset charset) throws IOException {
         StringBuilder resultString = new StringBuilder();

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * mybatis-plus分页查询配置
  */
 @Configuration
+//  mybatis-plus 配置
 public class MybatisPlusConfig {
     // 最新版
     @Bean

@@ -7,7 +7,9 @@ import co.elastic.clients.elasticsearch.core.search.Hit;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.api.constants.AdminConstants;
+import com.example.api.pojo.Activity;
 import com.example.api.pojo.Admin;
+import com.example.api.pojo.User;
 import com.example.api.pojo.vo.Admin.AdminInfo;
 import com.example.torchwebsite.service.AdminService;
 import com.example.torchwebsite.utils.JwtUtil;
@@ -107,6 +109,10 @@ public class AdminController {
         if (res == 0){
             return R.error().message("数据库添加失败");
         }
+//        Admin(id=16, name=ljy22123, password=665544332211, level=null, isActive=null, isLogin=null)
+//        System.out.println(newAdmin);
+
+//        insert 的 newAdmin 自动获取id...... 所有可以直接getId()
         rabbitTemplate.convertAndSend(AdminConstants.ADMIN_EXCHANGE,AdminConstants.ADMIN_INSERT_KEY,newAdmin.getId());
         return R.ok().message("");
     }
@@ -300,6 +306,7 @@ public class AdminController {
         return R.ok().message("");
     }
 
+//    admin  match查询其他admin信息
     @GetMapping("/elasticsearch")
     public R<?> EsSearch(HttpServletRequest request,
 //                         ES与Page查询不同，from：从第几项开始，size查询多少项
@@ -330,4 +337,81 @@ public class AdminController {
         }
         return R.ok().detail(source);
     }
+
+//    管理员 match查询所有相关信息
+
+//    暂未找到方便多索引查询的api......所以只能把两个分开了......
+//    也可以直接：http://127.0.0.1:9200/torchwebsite-admin,torchwebsite-user/_search
+    @GetMapping("/elasticsearch/searchAll")
+    public R<?> searchAll(HttpServletRequest request,
+                               @RequestParam(defaultValue = "1") Integer from,
+                               @RequestParam(defaultValue = "10") Integer size,
+                               @RequestParam(defaultValue = "") String searchContent){
+        Admin admin = (Admin) request.getAttribute("Admin");
+        SearchResponse<Admin> search = null;
+        try {
+            search = client.search(s -> s
+                            //
+                            .index("torchwebsite-admin").size(size).from(from)
+                            .query(q -> q.match(m -> m
+                                    .field("all")
+                                    .query(searchContent)
+                            ))
+                    ,Admin.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List<Admin> source = new ArrayList<>();
+        for (Hit<Admin> hit: search.hits().hits()) {
+            System.out.println(hit.source());
+            source.add(hit.source());
+        }
+        SearchResponse<User> searchUser = null;
+        try {
+            searchUser = client.search(s -> s
+                            //
+                            .index("torchwebsite-user").size(size).from(from)
+                            .query(q -> q.match(m -> m
+                                    .field("all")
+                                    .query(searchContent)
+                            ))
+                    ,User.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List<User> sourceUser = new ArrayList<>();
+        for (Hit<User> hit: searchUser.hits().hits()) {
+            System.out.println(hit.source());
+            sourceUser.add(hit.source());
+        }
+        SearchResponse<Activity> searchAct = null;
+        try {
+            searchAct = client.search(s -> s
+                            //
+                            .index("torchwebsite-activity").size(size).from(from)
+                            .query(q -> q.match(m -> m
+                                    .field("all")
+                                    .query(searchContent)
+                            ))
+                    ,Activity.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List<Activity> sourceAct = new ArrayList<>();
+        for (Hit<Activity> hit: searchAct.hits().hits()) {
+            System.out.println(hit.source());
+            sourceAct.add(hit.source());
+        }
+        JSONObject jsonObject = new JSONObject();
+
+        jsonObject.set("admin",source);
+        jsonObject.set("user",sourceUser);
+        jsonObject.set("activity",sourceAct);
+
+        return R.ok().detail(jsonObject);
+    }
+
 }

@@ -8,6 +8,7 @@ import java.util.Map;
 
 
 @Data
+//  封装的返回类~
 public class R<T> {
 
     private String status;

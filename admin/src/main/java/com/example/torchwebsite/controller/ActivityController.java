@@ -3,10 +3,12 @@ package com.example.torchwebsite.controller;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.api.constants.ActivityConstants;
 import com.example.api.pojo.Activity;
 import com.example.api.pojo.vo.Activity.ActivityInfo;
 import com.example.torchwebsite.service.ActivityService;
 import com.example.torchwebsite.utils.R;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -19,6 +21,8 @@ import java.util.List;
 public class ActivityController {
     @Resource
     private ActivityService activityService;
+    @Resource
+    private RabbitTemplate rabbitTemplate;
     //    查询活动
     @GetMapping
     public R<?> selectActivities(HttpServletRequest request, HttpServletResponse response,
@@ -46,6 +50,7 @@ public class ActivityController {
         if (res == 0){
             return R.error().message("数据库删除失败");
         }
+        rabbitTemplate.convertAndSend(ActivityConstants.ACTIVITY_EXCHANGE,ActivityConstants.ACTIVITY_DELETE_KEY,activity_id);
         return R.ok().message("");
     }
 
@@ -73,6 +78,8 @@ public class ActivityController {
         if (res == 0){
             return R.error().message("更改信息失败");
         }
+        rabbitTemplate.convertAndSend(ActivityConstants.ACTIVITY_EXCHANGE,ActivityConstants.ACTIVITY_INSERT_KEY,newActivity.getId());
+
         return R.ok().message("");
     }
 
@@ -94,14 +101,13 @@ public class ActivityController {
         newActivity.setPlace(activityInfo.getPlace());
         newActivity.setDate(activityInfo.getDate());
         newActivity.setName(activityInfo.getName());
-
-
-
+        
         int res = activityService.getBaseMapper().insert(newActivity);
         if (res == 0){
-
             return R.error().message("数据库添加失败");
         }
+        rabbitTemplate.convertAndSend(ActivityConstants.ACTIVITY_EXCHANGE,ActivityConstants.ACTIVITY_INSERT_KEY,newActivity.getId());
+
         return R.ok().message("");
     }
 

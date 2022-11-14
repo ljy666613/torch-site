@@ -17,6 +17,7 @@ import java.time.ZonedDateTime;
 import java.util.Map;
 
 @Component
+//  jwt(json web token)
 public class JwtUtil {
     @Value("${jwt.rsa-public-key-path}")
     private String rsaPublicKeyPath;

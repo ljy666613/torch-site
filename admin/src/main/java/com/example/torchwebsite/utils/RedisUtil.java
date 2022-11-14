@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Component
+//  Redis的工具类
 public class RedisUtil {
 
     @Resource

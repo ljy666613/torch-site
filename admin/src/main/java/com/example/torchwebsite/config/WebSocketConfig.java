@@ -13,6 +13,7 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 @Configuration
 @EnableWebSocket
+// WebSocket 配置
 public class WebSocketConfig {
 
     @Bean

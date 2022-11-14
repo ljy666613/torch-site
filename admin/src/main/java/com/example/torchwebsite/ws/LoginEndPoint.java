@@ -24,14 +24,16 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
+//  websocket连接  这里用于前端给我们发送心跳包~，建立ws连接时，将用户登录状态置为1，关闭ws连接后，将用户登录状态置为0
 @ServerEndpoint(value = "/login",configurator = GetHttpSessionConfigurator.class)
 @Component
 @Slf4j
-// WebSocket 每个连接创建一个对象，因此需要用静态资源存储所有对象信息
+// WebSocket 每个连接创建一个对象，因此需要用静态资源存储所有对象信息~
 public class LoginEndPoint {
 
 //    private static Map<String, String> map = new ConcurrentHashMap<>();
 
+//    静态list存储所有建立了连接的用户的id~
     private static List<String> list = new CopyOnWriteArrayList<>();
 //    存储用户id，用于关闭时知道是那个对象关闭了~
     private String id = "";
