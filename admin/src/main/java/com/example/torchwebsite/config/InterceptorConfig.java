@@ -30,7 +30,8 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 "/**"
         };
         String[] excludePath = {
-                "/api/admin/login"
+                "/api/admin/login",
+                "/api/donation/**"
         };
         registry.addInterceptor(interceptor).addPathPatterns(path).excludePathPatterns(excludePath);
     }

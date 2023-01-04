@@ -4,7 +4,9 @@ import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.api.pojo.News;
+import com.example.api.pojo.NewsImages;
 import com.example.api.pojo.vo.News.NewsInfo;
+import com.example.torchwebsite.service.NewsImagesService;
 import com.example.torchwebsite.service.NewsService;
 import com.example.torchwebsite.utils.R;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,8 @@ import java.util.List;
 public class NewsController {
     @Resource
     private NewsService newsService;
+    @Resource
+    private NewsImagesService newsImagesService;
     //    查询要闻
     @GetMapping
     public R<?> selectNews(HttpServletRequest request, HttpServletResponse response,
@@ -110,4 +114,15 @@ public class NewsController {
         News news = newsService.getBaseMapper().selectById(news_id);
         return R.ok().detail(news);
     }
+
+//    获取 薪火要闻中指定推文的所有相关图片
+    @GetMapping("/Images/{news_id}")
+    public R<?> getNewsImages(@PathVariable Integer news_id){
+        QueryWrapper<NewsImages> wrapper = new QueryWrapper<>();
+        wrapper.eq("news_id",news_id);
+        List<NewsImages> newsImages = newsImagesService.getBaseMapper().selectList(wrapper);
+        return R.ok().detail(newsImages);
+    }
+
+
 }

@@ -24,11 +24,25 @@ spring:
     password: keepacat
 
   rabbitmq:
-    username: admin
-    password: admin
+    username: guest
+    password: guest
     virtual-host: /
-    host: 192.168.142.132
+    host: 150.158.189.240
     port: 5672
+
+  mail:
+    host: 120.241.186.196 #smtp.qq.com,linux服务器上要配置为ip地址
+    username: 3057179865@qq.com
+    password: lyduypdnolpodcfj
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    port: 587
 
 mybatis-plus:
   type-aliases-package: com/nian/business/entry #简化别名，用类的名字充当
@@ -42,3 +56,6 @@ jwt:
   rsa-private-key-path: cert/rsa/private-key.pem
   rsa-public-key-path: cert/rsa/public-key.pem
   ttl: 999999
+
+path:
+  mailPic: "C:\\Users\\Lenovo\\Desktop\\ljy\\picture\\mmexport1662011188809.jpg"
