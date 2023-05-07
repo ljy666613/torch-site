@@ -17,7 +17,7 @@ public class ElasticSearchConfig {
     //注入IOC容器
     @Bean
     public ElasticsearchClient elasticsearchClient(){
-        RestClient client = RestClient.builder(new HttpHost("localhost", 9200,"http")).build();
+        RestClient client = RestClient.builder(new HttpHost("150.158.189.240", 9200,"http")).build();
         ElasticsearchTransport transport = new RestClientTransport(client,new JacksonJsonpMapper());
         return new ElasticsearchClient(transport);
     }

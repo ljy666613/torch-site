@@ -30,8 +30,13 @@ spring:
     host: 150.158.189.240
     port: 5672
 
+  elasticsearch:
+    username:
+    password:
+    uris: 150.158.189.240:9200
+
   mail:
-    host: 120.241.186.196 #smtp.qq.com,linux服务器上要配置为ip地址
+    host: smtp.qq.com #183.47.101.192 #120.241.186.196 #smtp.qq.com,linux服务器上要配置为ip地址
     username: 3057179865@qq.com
     password: lyduypdnolpodcfj
     default-encoding: utf-8
@@ -52,10 +57,11 @@ logging:
   config: classpath:log/logback-spring.xml
     #level自行设定
 
+
 jwt:
   rsa-private-key-path: cert/rsa/private-key.pem
   rsa-public-key-path: cert/rsa/public-key.pem
   ttl: 999999
-
-path:
+mail:
   mailPic: "C:\\Users\\Lenovo\\Desktop\\ljy\\picture\\mmexport1662011188809.jpg"
+  mailText: "叮！本月微信月捐二维码已送达，请注意查收哦！（无需回复）\n 如有疑问请联系内务部QQ：1957638453。"

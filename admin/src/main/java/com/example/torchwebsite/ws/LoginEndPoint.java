@@ -50,7 +50,7 @@ public class LoginEndPoint {
 
     @OnOpen
     public void onOpen(Session session, EndpointConfig config){
-        System.out.println("ok");
+        System.out.println("建立连接");
 //        this.session = session;
 //        HttpSession httpSession = (HttpSession)config.getUserProperties().get(HttpSession.class.getName());
 //        this.httpSession = httpSession;
@@ -76,7 +76,7 @@ public class LoginEndPoint {
     }
     @OnClose
     public void onClose(Session session){
-        System.out.println("down");
+        System.out.println("关闭连接");
         Admin admin = adminService.getBaseMapper().selectById(id);
         admin.setIsLogin(0);
         adminService.getBaseMapper().updateById(admin);
@@ -86,11 +86,11 @@ public class LoginEndPoint {
 //        String remove = list.remove(1);
 //        boolean remove1 = list.remove(new Integer(1));
 //        boolean remove2 = list.remove((Integer) 1);
-        boolean s = list.remove("s");
+        boolean s = list.remove(id);
         if (s){
-            System.out.println("已删除endpoint！");
+            System.out.println("已删除该endpoint！");
         }else {
-            System.out.println("list中不存在");
+            System.out.println("list中并不存在该endpoint");
 //            throw new NotFoundException("list中不存在");
         }
 
@@ -98,7 +98,7 @@ public class LoginEndPoint {
     @OnError
     public void onError(Session session,Throwable throwable){
         throwable.printStackTrace();
-        System.out.println("error");
+        System.out.println("出错了！");
     }
 
     /**

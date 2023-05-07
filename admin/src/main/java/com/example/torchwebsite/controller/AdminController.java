@@ -52,9 +52,9 @@ public class AdminController {
     @Resource
     private ElasticsearchClient client;
 
-//    private Integer countTest = 0;
+    private Integer countTest = 0;
 
-//    private List<Integer> list = new ArrayList<>();
+    private List<Integer> list = new ArrayList<>();
 
     @Autowired
     public AdminController(JwtUtil jwtUtil,RedissonClient redissonClient,RedisUtil redisUtil) {
@@ -246,57 +246,57 @@ public class AdminController {
         return R.ok().message("");
     }
 
-////    定时
-//    @Scheduled(cron = "*/5 * * * * ?")
-//    public void Listen(){
-//
-////        System.out.println("================"+countTest++);
-////        arraylist 的循环删除问题，正向循环删除会有bug，如果有两个连续的数据都符合删除的条件，
-////        那么，因删除第一个后重新编制索引，所以第二个根本就不会进入循环
-////        总结：for循环正向删除，会遗漏连续重复的元素。
-////        而，反向不会跳过元素！
-////        forEach循环会直接报错~
-//        for (int i = list.size() - 1; i >= 0; i--) {
-//            Admin admin = adminService.getBaseMapper().selectOne(new QueryWrapper<Admin>().eq("id", list.get(i)));
-//            if (redisUtil.get("LOGIN_ID:"+list.get(i)) == null){
-//                admin.setIsLogin(0);
-//                adminService.getBaseMapper().updateById(admin);
-//                list.remove(i);
-//            }
+//    定时
+    @Scheduled(cron = "*/5 * * * * ?")
+    public void Listen(){
+
+//        System.out.println("================"+countTest++);
+//        arraylist 的循环删除问题，正向循环删除会有bug，如果有两个连续的数据都符合删除的条件，
+//        那么，因删除第一个后重新编制索引，所以第二个根本就不会进入循环
+//        总结：for循环正向删除，会遗漏连续重复的元素。
+//        而，反向不会跳过元素！
+//        forEach循环会直接报错~
+        for (int i = list.size() - 1; i >= 0; i--) {
+            Admin admin = adminService.getBaseMapper().selectOne(new QueryWrapper<Admin>().eq("id", list.get(i)));
+            if (redisUtil.get("LOGIN_ID:"+list.get(i)) == null){
+                admin.setIsLogin(0);
+                adminService.getBaseMapper().updateById(admin);
+                list.remove(i);
+            }
+        }
+//        if (redisUtil.get("LOGIN_ID:"+admin.getId()) == null) {
+//            return R.error().message("");
 //        }
-////        if (redisUtil.get("LOGIN_ID:"+admin.getId()) == null) {
-////            return R.error().message("");
-////        }
-////        admin.setIsLogin(0);
-////        adminService.getBaseMapper().updateById(admin);
-//    }
-//    @GetMapping("/time")
-//    public R<?> Time(HttpServletRequest request){
-//        Admin admin = (Admin) request.getAttribute("Admin");
-//        redisUtil.set("LOGIN_ID:"+admin.getId(),admin,5);
-//        list.add(admin.getId());
-//        admin.setIsLogin(1);
+//        admin.setIsLogin(0);
 //        adminService.getBaseMapper().updateById(admin);
-////        测试罢了：
-////        new LoginEndPoint().onOpen((Session) request.getSession(), new EndpointConfig() {
-////            @Override
-////            public List<Class<? extends Encoder>> getEncoders() {
-////                return null;
-////            }
-////
-////            @Override
-////            public List<Class<? extends Decoder>> getDecoders() {
-////                return null;
-////            }
-////
-////            @Override
-////            public Map<String, Object> getUserProperties() {
-////                return null;
-////            }
-////        });
-////        LoginEndPoint.sendInfo("msg","ok");
-//        return R.ok().message("");
-//    }
+    }
+    @GetMapping("/time")
+    public R<?> Time(HttpServletRequest request){
+        Admin admin = (Admin) request.getAttribute("Admin");
+        redisUtil.set("LOGIN_ID:"+admin.getId(),admin,5);
+        list.add(admin.getId());
+        admin.setIsLogin(1);
+        adminService.getBaseMapper().updateById(admin);
+//        测试罢了：
+//        new LoginEndPoint().onOpen((Session) request.getSession(), new EndpointConfig() {
+//            @Override
+//            public List<Class<? extends Encoder>> getEncoders() {
+//                return null;
+//            }
+//
+//            @Override
+//            public List<Class<? extends Decoder>> getDecoders() {
+//                return null;
+//            }
+//
+//            @Override
+//            public Map<String, Object> getUserProperties() {
+//                return null;
+//            }
+//        });
+//        LoginEndPoint.sendInfo("msg","ok");
+        return R.ok().message("");
+    }
 
     @PostMapping("/exit")
     public R<?> exit(HttpServletRequest request){

@@ -1,8 +1,0 @@
-2023-01-04 15:06:48.080|[restartedMain]|DEBUG|c.e.t.TorchWebsiteApplication-Running with Spring Boot v2.7.4, Spring v5.3.23
-2023-01-04 15:09:44.342|[restartedMain]|DEBUG|c.e.t.TorchWebsiteApplication-Running with Spring Boot v2.7.4, Spring v5.3.23
-2023-01-04 15:10:00.244|[pool-7-thread-1]|DEBUG|c.e.t.m.D.selectList-==>  Preparing: SELECT id,name,amount,tel,email,message,way,is_anonymous,anonymity FROM donation
-2023-01-04 15:10:00.265|[pool-7-thread-1]|DEBUG|c.e.t.m.D.selectList-==> Parameters: 
-2023-01-04 15:10:00.305|[pool-7-thread-1]|DEBUG|c.e.t.m.D.selectList-<==      Total: 1
-2023-01-04 15:10:10.012|[pool-7-thread-1]|DEBUG|c.e.t.m.D.selectList-==>  Preparing: SELECT id,name,amount,tel,email,message,way,is_anonymous,anonymity FROM donation
-2023-01-04 15:10:10.012|[pool-7-thread-1]|DEBUG|c.e.t.m.D.selectList-==> Parameters: 
-2023-01-04 15:10:10.014|[pool-7-thread-1]|DEBUG|c.e.t.m.D.selectList-<==      Total: 1

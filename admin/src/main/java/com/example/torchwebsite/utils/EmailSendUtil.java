@@ -85,7 +85,7 @@ public class EmailSendUtil {
      * @param subject 标题
      * @param email 接受者
      */
-    public void htmlEmailWithPic(String from,String subject,String email,String imgPath){
+    public void htmlEmailWithPic(String from,String subject,String email,String imgPath,String text){
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true);
@@ -93,8 +93,7 @@ public class EmailSendUtil {
             helper.setTo(email);
             helper.setSubject(subject);
 
-            String text = "HTML文本";
-            String content = "<html><body>" + text + "<img src=\'cid:" + 1 + "\'></img>" + "</body></html><br>";
+            String content = "<html><body>" + "<p>"+ text + "</p>" + "<img src=\'cid:" + 1 + "\'></img>" + "</body></html><br>";
             helper.setText(content,true);
             File file = new File(imgPath);// 创建图片文件
             FileSystemResource resource = new FileSystemResource(file);

@@ -16,7 +16,6 @@ public class GetHttpSessionConfigurator extends ServerEndpointConfig.Configurato
         for (String s : pro) {
             System.out.println(s);
         }
-        System.out.println("-------");
         sec.getUserProperties().put(List.class.getName(),pro);
 //        sec.getUserProperties().put(HttpSession.class.getName(),httpSession);
         Map<String, List<String>> headers = response.getHeaders();

@@ -1,8 +1,0 @@
-2023-01-04 15:06:48.076|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 12800 (D:\Java practice\torch-website\admin\target\classes started by Lenovo in D:\Java practice\torch-website)
-2023-01-04 15:06:48.085|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
-2023-01-04 15:06:53.381|[restartedMain]|INFO |c.e.t.config.RedissonConfig-布隆过滤器初始化成功
-2023-01-04 15:06:57.089|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 9.93 seconds (JVM running for 12.249)
-2023-01-04 15:09:44.341|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Starting TorchWebsiteApplication using Java 1.8.0_332 on DESKTOP-KRCTUO3 with PID 3560 (D:\Java practice\torch-website\admin\target\classes started by Lenovo in D:\Java practice\torch-website)
-2023-01-04 15:09:44.343|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-No active profile set, falling back to 1 default profile: "default"
-2023-01-04 15:09:49.993|[restartedMain]|INFO |c.e.t.config.RedissonConfig-布隆过滤器初始化成功
-2023-01-04 15:09:54.915|[restartedMain]|INFO |c.e.t.TorchWebsiteApplication-Started TorchWebsiteApplication in 11.569 seconds (JVM running for 13.207)

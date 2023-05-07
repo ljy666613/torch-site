@@ -110,4 +110,13 @@ public class CommentController {
         Comment comment = commentService.getBaseMapper().selectById(comment_id);
         return R.ok().detail(comment);
     }
+
+//    查看父级评论下的分级评论
+    @GetMapping("/mulComment/{parent_id}")
+    public R<?> getMulComment(@PathVariable Integer parent_id){
+        QueryWrapper<Comment> wrapper = new QueryWrapper<>();
+        wrapper.eq("parent_id",parent_id);
+        List<Comment> comments = commentService.getBaseMapper().selectList(wrapper);
+        return R.ok().detail(comments);
+    }
 }

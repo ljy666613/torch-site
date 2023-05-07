@@ -32,8 +32,13 @@ public class DonationController {
     @Value("${spring.mail.username}")
     private String MAIL;
 
-    @Value("${path.mailPic}")
-    private String mailPath;
+    @Value("${mail.mailPic}")
+    private String mailPic;
+
+    @Value("${mail.mailText}")
+    private String mailText;
+
+
     //    查询捐款
     @GetMapping
     public R<?> selectDonations(HttpServletRequest request, HttpServletResponse response,
@@ -82,7 +87,7 @@ public class DonationController {
         newDonation.setName(donationInfo.getName());
         newDonation.setEmail(donationInfo.getEmail());
         newDonation.setTel(donationInfo.getTel());
-        newDonation.setMessage(donationInfo.getMessage());
+        newDonation.setAddress(donationInfo.getAddress());
         newDonation.setAmount(donationInfo.getAmount());
         newDonation.setWay(donationInfo.getWay());
         newDonation.setIsAnonymous(donationInfo.getIsAnonymous());
@@ -113,7 +118,7 @@ public class DonationController {
         newDonation.setName(donationInfo.getName());
         newDonation.setEmail(donationInfo.getEmail());
         newDonation.setTel(donationInfo.getTel());
-        newDonation.setMessage(donationInfo.getMessage());
+        newDonation.setAddress(donationInfo.getAddress());
         newDonation.setAmount(donationInfo.getAmount());
         newDonation.setWay(donationInfo.getWay());
         newDonation.setIsAnonymous(donationInfo.getIsAnonymous());
@@ -136,16 +141,18 @@ public class DonationController {
         return R.ok().detail(donation);
     }
 
-//    @Scheduled(cron = "0 0 12 1 * ?")
-    @Scheduled(cron = "*/10 * * * * ?")
+    @Scheduled(cron = "0 0 12 1 * ?")
+//    应该用队列实现异步发邮件的~
+//    @Scheduled(cron = "*/10 * * * * ?")
     public void inform(){
         List<Donation> donations = donationService.getBaseMapper().selectList(null);
         for (Donation donation : donations) {
+            if(donation.getWay() == 2)
 //            emailSendUtil.simpleEmail(MAIL,donation.getEmail(),"捐款通知","......");
 //            emailSendUtil.sendAttachmentsMail(MAIL, donation.getEmail(),"捐款通知", "......",
 //                    "C:\\Users\\Lenovo\\Desktop\\ljy\\picture\\mmexport1662011188809.jpg");
-            emailSendUtil.htmlEmailWithPic(MAIL,"捐款",donation.getEmail(),
-                    mailPath);
+            emailSendUtil.htmlEmailWithPic(MAIL,"薪火月捐",donation.getEmail(),
+                    mailPic,mailText);
 
         }
 

@@ -10,4 +10,10 @@ import java.io.Serializable;
 public class Comment implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
+    private Integer activity_id;
+    private String content;
+    private Integer parent_id;
+    private Integer user_id;
+    private Integer reply_id;
+
 }

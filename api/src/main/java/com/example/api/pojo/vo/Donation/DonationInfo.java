@@ -8,7 +8,7 @@ public class DonationInfo {
     private String amount;
     private String tel;
     private String email;
-    private String message;
+    private String address;
     private Integer way;
     private Integer isAnonymous;
     private String anonymity;

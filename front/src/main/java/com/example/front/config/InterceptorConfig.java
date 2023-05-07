@@ -1,6 +1,6 @@
-package com.example.torchwebsite.config;
+package com.example.front.config;
 
-import com.example.torchwebsite.interceptor.AdminInterceptor;
+import com.example.front.interceptor.UserInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -12,12 +12,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 
 @Configuration
-// 拦截器配置，拦截除了login以外的接口~
 public class InterceptorConfig implements WebMvcConfigurer {
-    private final AdminInterceptor interceptor;
+    private final UserInterceptor interceptor;
 
     @Autowired
-    public InterceptorConfig(AdminInterceptor interceptor) {
+    public InterceptorConfig(UserInterceptor interceptor) {
         this.interceptor = interceptor;
     }
 
@@ -30,9 +29,10 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 "/**"
         };
         String[] excludePath = {
-                "/api/admin/login",
-                "/api/donation/**",
-                "/async/test"    // 多线程测试
+                "/api/front/login",
+//                "/api/front/mailVerify",
+//                "/api/front/codeCheck",
+                "/api/front/register"
         };
         registry.addInterceptor(interceptor).addPathPatterns(path).excludePathPatterns(excludePath);
     }

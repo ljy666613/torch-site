@@ -1,19 +1,20 @@
 package com.example.front.utils.inter;
 
-/**
- * 自定义返回的code
- */
+
 public interface ResultCode {
     String SUCCESS = "success";
 
     String ERROR = "error";
 
-//    Integer success = 200;
+    Integer notRegister = 100;//未注册错误码
 
-//    Integer error = 100;
+    Integer fullPeople = 101;//报名人数已满错误码
 
+    Integer noPeople = 102;//报名人数少于0错误码
 
-//    Integer notRegister = 100;//未注册错误码
+    Integer timeOut = 103;//超时错误码
 
-//    Integer wrongMsg = 105;//代表错误的请求，布隆过滤器中没有。
+    Integer notSatisfySign = 104;//不满足志愿报名条件，时间冲突
+
+    Integer wrongMsg = 105;//代表错误的请求，布隆过滤器中没有。
 }
