@@ -1,0 +1,50 @@
+server:
+  port: 9999
+  address: 0.0.0.0
+spring:
+  datasource:
+    #    driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url: jdbc:mariadb://localhost:3306/torch?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/torch-website?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: lijiayi20021027
+    hikari:
+      minimum-idle : 3
+      maximum-pool-size: 5
+      max-lifetime: 1800000
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  redis:
+    host: 139.186.170.118
+    port: 6379
+    database: 6
+    password: keepacat
+  mail:
+    host: smtp.qq.com #183.47.101.192 #120.241.186.196 #smtp.qq.com,linux服务器上要配置为ip地址
+    username: 3057179865@qq.com
+    password: lyduypdnolpodcfj
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    port: 587
+
+mybatis-plus:
+  type-aliases-package: com/nian/business/entry #????????????
+  mapper-locations: classpath:mapper/*.xml #????
+
+logging:
+  config: classpath:log/logback-spring.xml
+  #level????
+
+jwt:
+  rsa-private-key-path: cert/rsa/private-key.pem
+  rsa-public-key-path: cert/rsa/public-key.pem
+  ttl: 999999
