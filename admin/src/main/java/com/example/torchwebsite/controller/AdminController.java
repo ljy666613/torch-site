@@ -109,8 +109,6 @@ public class AdminController {
         if (res == 0){
             return R.error().message("数据库添加失败");
         }
-//        Admin(id=16, name=ljy22123, password=665544332211, level=null, isActive=null, isLogin=null)
-//        System.out.println(newAdmin);
 
 //        insert 的 newAdmin 自动获取id...... 所有可以直接getId()
         rabbitTemplate.convertAndSend(AdminConstants.ADMIN_EXCHANGE,AdminConstants.ADMIN_INSERT_KEY,newAdmin.getId());
@@ -158,7 +156,18 @@ public class AdminController {
         rabbitTemplate.convertAndSend(AdminConstants.ADMIN_EXCHANGE,AdminConstants.ADMIN_INSERT_KEY,newAdmin.getId());
         return R.ok().message("");
     }
+
 //登录接口
+//    实现同时只有一个用户登录：
+//    1.拦截后续用户：要实现同时仅有一个用户登录的功能，可以采取如下的方案：
+//
+//1. 给每个用户分配一个唯一的 token，比如使用 UUID，写进redis中；
+//2. 在后端设一个记录当前活跃用户登录信息的全局变量。当一个用户登录时，前端向后端发送登录请求，后端读取该用户的 token 与全局变量中的用户 token 做比较，如果没有重复，则将该用户的 token 写入全局变量中，同时告诉前端登录成功，用户可以进入系统使用；
+//3. 如果有新的用户登录，则后端先读取该用户的 token，并检查全局变量中是否已有该 token 的记录，如果有则告诉前端该用户已经登录，拒绝登录请求，否则将该用户的 token 写入全局变量中，并告诉前端登录成功，用户可以进入系统使用。
+//4. 当用户注销或者离开系统时，后端从全局变量中删除该用户的 token。
+
+//综上，就是把is_login字段删除，是否登录就通过redis是否有对应的token来判断
+//这样就实现了在系统中同时只有一个用户登录的功能。需要注意的是，该方案中可以存储所有用户的 token，因此需要在后端设置登录超时时间或者根据具体情况定期清除已经过期的 token，以保证系统的安全性。
     @PostMapping("/login")
     public R<?> login(@RequestBody Admin admin, HttpServletRequest request){//这只是传进来的user，并没有在数据库中进行查找
 
@@ -270,6 +279,7 @@ public class AdminController {
 //        admin.setIsLogin(0);
 //        adminService.getBaseMapper().updateById(admin);
     }
+
     @GetMapping("/time")
     public R<?> Time(HttpServletRequest request){
         Admin admin = (Admin) request.getAttribute("Admin");

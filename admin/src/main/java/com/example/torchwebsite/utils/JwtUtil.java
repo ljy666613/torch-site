@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.ZoneOffset;
@@ -25,6 +26,9 @@ public class JwtUtil {
     private String rsaPrivateKeyPath;
     @Value("${jwt.ttl}")
     private int ttl;
+
+    @Resource
+    private RedisUtil redisUtil;
 
     private String rsaPrivateKey;
     private String rsaPublicKey;
@@ -65,11 +69,13 @@ public class JwtUtil {
                 .setIssuedAt(ZonedDateTime.now(ZoneOffset.UTC))  // 设置签发时间
                 .setExpiration(ZonedDateTime.now(ZoneOffset.UTC).plusMinutes(ttl)); // 设置超时时间,单位：分组
 
+
         for(Map.Entry<String, Object> entry : payload.entrySet()){
             jwt.addClaim(entry.getKey(), entry.getValue());
         }
-
-        return JWT.getEncoder().encode(jwt, signer);
+        String encode = JWT.getEncoder().encode(jwt, signer);
+        redisUtil.set(payload.get("uid").toString(),encode);
+        return encode;
     }
 
     public Map<String, Object> decodeToken(String token) throws JWTExpiredException {

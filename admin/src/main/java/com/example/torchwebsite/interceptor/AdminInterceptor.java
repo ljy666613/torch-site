@@ -1,15 +1,18 @@
 package com.example.torchwebsite.interceptor;
 
+import co.elastic.clients.elasticsearch.core.rank_eval.RankEvalMetricDiscountedCumulativeGain;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.api.pojo.Admin;
 import com.example.torchwebsite.service.AdminService;
 import com.example.torchwebsite.utils.JwtUtil;
+import com.example.torchwebsite.utils.RedisUtil;
 import io.fusionauth.jwt.JWTExpiredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
@@ -18,6 +21,8 @@ import java.util.Map;
 public class AdminInterceptor implements HandlerInterceptor {
     private final JwtUtil jwtUtil;
     private final AdminService adminService;
+    @Resource
+    private RedisUtil redisUtil;
 
     //    注入bean即可使用，这里可以不写@Autowired
     @Autowired
@@ -47,11 +52,17 @@ public class AdminInterceptor implements HandlerInterceptor {
 
         String token = tokenSplitRet[1];
 
+
         Map<String, Object> payload;
         try {
             payload = jwtUtil.decodeToken(token);
         }catch (JWTExpiredException e){
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            return false;
+        }
+
+        String encode = (String) redisUtil.get(payload.get("uid").toString());
+        if (!encode.equals(token)) {
             return false;
         }
 
